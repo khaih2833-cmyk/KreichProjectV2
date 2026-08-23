@@ -1108,6 +1108,159 @@ footer {
     line-height: 2;
 }
 
+/* =========================================================
+   OUTSIDE SIDE PICTURES
+   ========================================================= */
+
+.game-wrapper {
+    position: relative;
+
+    width: min(1450px, 100%);
+    margin: 50px auto 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* The pictures */
+
+.side-picture {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    object-fit: cover;
+
+    image-rendering: pixelated;
+
+    background: #222;
+
+    border: 6px solid #111;
+
+    outline: 4px solid white;
+
+    box-shadow:
+        10px 10px 0 rgba(0, 0, 0, .35);
+
+    z-index: 60;
+
+    transition:
+        transform .2s,
+        filter .2s;
+}
+
+
+/* LEFT */
+
+.left-picture {
+    left: -275px;
+    top: 150px;
+}
+
+
+/* RIGHT */
+
+.right-picture {
+    right: -275px;
+    top: 150px;
+}
+
+
+/* Pixel-style hover */
+
+.side-picture:hover {
+    transform:
+        translateY(-6px)
+        scale(1.04);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   IMAGE LABELS
+   ========================================================= */
+
+.side-picture-label {
+    position: absolute;
+
+    z-index: 61;
+
+    padding: 9px 12px;
+
+    background: rgba(0, 0, 0, .85);
+
+    color: white;
+
+    border: 3px solid white;
+
+    font-family:
+        "Press Start 2P",
+        monospace;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+}
+
+
+.left-picture-label {
+    left: 35px;
+    top: 345px;
+}
+
+
+.right-picture-label {
+    right: 35px;
+    top: 345px;
+}
+
+
+/* =========================================================
+   SMALLER SCREENS
+   ========================================================= */
+
+@media (max-width: 1400px) {
+
+    .side-picture {
+        width: 180px;
+        height: 180px;
+    }
+
+    .left-picture {
+        left: 10px;
+        top: 175px;
+    }
+
+    .right-picture {
+        right: 10px;
+        top: 175px;
+    }
+
+    .left-picture-label {
+        left: 20px;
+        top: 335px;
+    }
+
+    .right-picture-label {
+        right: 20px;
+        top: 335px;
+    }
+}
+
+
+/* Hide side pictures on very small screens */
+
+@media (max-width: 900px) {
+
+    .side-picture,
+    .side-picture-label {
+        display: none;
+    }
+
+}
 
 /* =========================================================
    MOBILE
@@ -1236,8 +1389,34 @@ footer {
          MAIN GAME SCENE
          ===================================================== -->
 
-    <section class="game">
+  <!-- =====================================================
+     MAIN GAME SCENE + OUTSIDE PICTURES
+     ===================================================== -->
 
+<div class="game-wrapper">
+
+
+    <!-- ================================================
+         LEFT PICTURE
+         ================================================ -->
+
+    <img
+        src="images/left-picture.jpg"
+        class="side-picture left-picture"
+        alt="Left picture"
+    >
+
+    <div class="side-picture-label left-picture-label">
+        Kantoi Main Mc
+    </div>
+
+
+
+    <!-- ================================================
+         YOUR EXISTING GAME
+         ================================================ -->
+
+    <section class="game">
 
         <!-- Background -->
 
@@ -1296,12 +1475,9 @@ footer {
         <div class="ore three"></div>
 
 
-        <!-- =================================================
-             STEVE
-             ================================================= -->
+        <!-- STEVE -->
 
         <div class="steve">
-
 
             <div class="steve-head">
 
@@ -1309,19 +1485,15 @@ footer {
 
             </div>
 
-
             <div class="steve-body"></div>
-
 
             <div class="steve-arm left"></div>
 
             <div class="steve-arm right"></div>
 
-
             <div class="steve-leg left"></div>
 
             <div class="steve-leg right"></div>
-
 
         </div>
 
@@ -1337,8 +1509,27 @@ footer {
 
         <div class="platform main"></div>
 
-
     </section>
+
+
+
+    <!-- ================================================
+         RIGHT PICTURE
+         ================================================ -->
+
+    <img
+        src="images/right-picture.jpg"
+        class="side-picture right-picture"
+        alt="Right picture"
+    >
+
+    <div class="side-picture-label right-picture-label">
+        Baru Bangun Tido
+    </div>
+
+
+</div>
+
 
 
     <!-- =====================================================
